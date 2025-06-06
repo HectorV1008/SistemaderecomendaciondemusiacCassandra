@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Recomendación de Música</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sistema de Recomendación de Música</h1>
+    
+    <section id="recommendation-section">
+      <h2>Recomendación Personalizada</h2>
+      <form id="recommendation-form">
+        <label for="usuario_id">Ingresa tu ID de usuario:</label>
+        <input type="number" id="usuario_id" name="usuario_id" required>
+        <label for="modo_recomendacion">Modo de recomendación:</label>
+        <select id="modo_recomendacion" name="modo_recomendacion">
+          <option value="ciudad">Por ciudad</option>
+          <option value="genero">Por género favorito</option>
+        </select>
+        <button type="submit">Obtener Recomendaciones</button>
+      </form>
+      <div id="recommendation-result"></div>
+    </section>
+    
+    <section id="olap-section">
+      <h2>Análisis OLAP: Escuchas por Género, Mes y Ciudad</h2>
+      <button id="fetch-olap">Ver OLAP 2D</button>
+      <div id="olap-result"></div>
+    </section>
+    
+    <section id="insert-section">
+      <h2>Insertar Usuario, Canción o Escucha</h2>
+      <div style="display: flex; gap: 30px; flex-wrap: wrap; justify-content: center;">
+        <form id="insert-usuario-form">
+          <h3>Nuevo Usuario</h3>
+          <input type="number" id="nuevo_usuario_id" placeholder="ID Usuario" required><br>
+          <input type="text" id="nuevo_usuario_nombre" placeholder="Nombre" required><br>
+          <input type="text" id="nuevo_usuario_ciudad" placeholder="Ciudad" required><br>
+          <button type="submit">Insertar Usuario</button>
+          <div id="insert-usuario-result"></div>
+        </form>
+        <form id="insert-cancion-form">
+          <h3>Nueva Canción</h3>
+          <input type="number" id="nueva_cancion_id" placeholder="ID Canción" required><br>
+          <input type="text" id="nueva_cancion_titulo" placeholder="Título" required><br>
+          <input type="text" id="nueva_cancion_artista" placeholder="Artista" required><br>
+          <input type="text" id="nueva_cancion_genero" placeholder="Género" required><br>
+          <button type="submit">Insertar Canción</button>
+          <div id="insert-cancion-result"></div>
+        </form>
+        <form id="insert-escucha-form">
+          <h3>Nueva Escucha</h3>
+          <input type="number" id="nueva_escucha_usuario_id" placeholder="ID Usuario" required><br>
+          <input type="number" id="nueva_escucha_cancion_id" placeholder="ID Canción" required><br>
+          <input type="date" id="nueva_escucha_fecha" required><br>
+          <button type="submit">Insertar Escucha</button>
+          <div id="insert-escucha-result"></div>
+        </form>
+      </div>
+    </section>
+    
+    <section id="csv-upload-section">
+      <h2>Cargar datos masivos desde CSV</h2>
+      <form id="csv-upload-form">
+        <label for="csv-type">Tipo de datos:</label>
+        <select id="csv-type" required>
+          <option value="usuarios">Usuarios</option>
+          <option value="canciones">Canciones</option>
+          <option value="escuchas">Escuchas</option>
+        </select>
+        <input type="file" id="csv-file" accept=".csv" required>
+        <button type="submit">Cargar CSV</button>
+      </form>
+      <div id="csv-upload-result"></div>
+    </section>
+  </div>
+  
+  <script src="app.js"></script>
+</body>
+</html>

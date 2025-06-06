@@ -1,0 +1,11 @@
+{
+  "name": "music-recommendations-cassandra",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "multer": "^2.0.1",
+    "open": "^10.1.2"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
